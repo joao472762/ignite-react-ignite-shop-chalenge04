@@ -4,7 +4,7 @@ export const HeaderContainer = styled('header',{
     display: 'flex',
     justifyContent: 'space-between',
     
-    maxWidth: 1180,
+    maxWidth: 1203,
     margin: '0 auto',
 
     padding: '0 1.5rem'
@@ -46,8 +46,8 @@ export const PurchaseCounter = styled('div',{
     left: 28,
     top: -10,
 
-    width: 26,
-    height: 26,
+    width: '1.62rem',
+    height: '1.62rem',
     
     borderRadius: 13,
     
@@ -60,14 +60,14 @@ export const PurchaseCounter = styled('div',{
         alignItems: 'center',
         justifyContent: 'center',
 
-        width: 20,
-        height: 20,
+        width: '1.25rem',
+        height: '1.25rem',
         
         borderRadius: 13,
         backgroundColor: '$primary',
 
         span:{
-            fontSize: 12,
+            fontSize: '0.75rem',
     
         }
     }

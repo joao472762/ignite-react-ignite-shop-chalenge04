@@ -15,6 +15,7 @@ export const {
             primary: '#00B37E',
             primaryLight: '#00875F',
 
+
             background: '#121214',
             elements: '#202024',
 
@@ -22,7 +23,9 @@ export const {
             text: '#C4C4CC',
             title: '#E1E1E6',
             
-            white: '#fff'
+            white: '#fff',
+
+            productBackground:  'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
 
         },
         fontSizes: {
@@ -33,7 +36,8 @@ export const {
         },
         fonts:{
             default: 'Roboto, sans-serif'
-        }
+        },
+
     }
     
 })
