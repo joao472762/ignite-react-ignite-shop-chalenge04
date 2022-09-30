@@ -7,11 +7,10 @@ export const globalStyles = globalCss({
         outline: 'none',
         boxSizing: 'border-box',
         padding: 0,
-        inset: 0,
     },
 
     '*:focus':{
-        boxShadow: '0 0 0 2 #00875F',
+        boxShadow: '0px 0px 0px 2px #00875F',
     },
 
     body: {

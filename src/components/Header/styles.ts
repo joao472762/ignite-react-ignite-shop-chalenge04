@@ -3,8 +3,10 @@ import { styled } from "../../styles";
 export const HeaderContainer = styled('header',{
     display: 'flex',
     justifyContent: 'space-between',
+
+    width: '100%',
     
-    maxWidth: 1203,
+    maxWidth: 1228,
     margin: '0 auto',
 
     padding: '0 1.5rem'
@@ -43,7 +45,7 @@ export const PurchasesButton = styled('button', {
 
 export const PurchaseCounter = styled('div',{
     position: 'absolute',
-    left: 28,
+    right: '-0.81rem',
     top: -10,
 
     width: '1.62rem',

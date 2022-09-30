@@ -1,21 +1,10 @@
 import { styled } from "..";
 
 export const HomeContainer = styled('main',{
-    section:{
-        position: 'relative',
-        width: 500,
-        height: 500,
-        background: '$productBackground',
-
-        div: {
-            position: 'absolute',
-            bottom: 0,
-            rigth: 0,     
-            width: 200,
-            height: 200,
-            background: 'purple',
-        }
-    }
+    width: '100%',
+    paddingLeft: '1.5rem',
+    maxWidth: 'calc(100vw - ((100vw - 1196px) / 2))',
+    marginLeft: 'auto'
 })
 
 export const Product = styled('div', {
@@ -27,49 +16,95 @@ export const Product = styled('div', {
 
     padding: '.25rem',
     borderRadius: 8,
+    overflow: 'hidden',
+
+    img:{
+        objectFit: 'cover'
+    },
+
+    a:{
+
+        display: "flex",
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        height: '100%',
+        width: '100%',
+    },
+
+
+    '&:hover': {
+
+        footer:{
+            transform: 'translateY(0%)',
+            opacity: 1,
+
+        },
+        button: {
+            transform: 'translateY(0%)',
+            opacity: 1,
+        }
+        
+    }
 })
 
 export const ProductInfo = styled('footer', {
-    bottom: '0.25rem',
-    left: '0.25rem',
-    right: '0.25rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+
     position: 'absolute',
+    left: '0.25rem',
+    bottom: '0.25rem',
+    right: '0.25rem',
+
+    background: "#000",
+    paddingLeft: 20,
+    filter: 'opacity(.8)',
+
+   height: '6.875rem',
+   borderRadius: 6,
+
+   transform: 'translateY(120%)',
+   opacity: 0,
+   transition: 'all .2s ease-in-out',
+
 
   
 
-    background: "red",
-    filter: 'opacity(.8)',
-
-   
-    paddingRight: 40,
-    paddingLeft: 32,
-    borderRadius: 6,
-
-    transform: 'translateY(110%)',
-    opacity: 0,
-    transition: 'all .2s ease-in-out',
-
-    strong:{
+    h2:{
         color: "White",
         fontSize: '$lg'
     },
 
-    span: {
+    strong: {
         fontWeight: 'bold',
-        color: "$green300",
+        color: "$primary",
         fontSize: '$lg'
     }
 })
 
 
 export const PurchaseButton = styled('button', {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
     position: 'absolute',
+    right: '2rem',
+    bottom: '1.9rem',
 
     width: '3.5rem',
     height: '3.5rem',
 
-    bottom: 30,
-
+    transform: 'translateY(120%)',
+    transition: 'all .2s ease-in-out',
+    opacity: 0,
+    
     backgroundColor: '$primary',
     borderRadius: 6,
+    
+    svg:{
+        fontSize: 32
+    }
 })
