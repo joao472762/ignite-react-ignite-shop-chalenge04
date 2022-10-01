@@ -37,7 +37,11 @@ export const {
         fonts:{
             default: 'Roboto, sans-serif'
         },
+        
 
+    },
+    media:{
+        bp1: '(max-width: 600px)',
     }
-    
+   
 })

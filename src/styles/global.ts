@@ -22,5 +22,11 @@ export const globalStyles = globalCss({
         lineHeight: 1.6,
         fontSize: '$regular',
         color: '$text'
+    },
+
+    html: {
+        '@bp1': {
+            fontSize: '85%'
+        }
     }
 })
