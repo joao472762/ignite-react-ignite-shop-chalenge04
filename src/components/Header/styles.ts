@@ -5,7 +5,6 @@ export const HeaderContainer = styled('header',{
     justifyContent: 'space-between',
 
     width: '100%',
-    
     maxWidth: 1228,
     margin: '0 auto',
 
@@ -37,9 +36,6 @@ export const PurchasesButton = styled('button', {
         color: '$icon',
         fontSize: '1.5rem',
     },
-
-
-
 
 })
 

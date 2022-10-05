@@ -29,6 +29,7 @@ export const {
 
         },
         fontSizes: {
+            'small': '1rem',
             'regular': '1.125rem',
             'medium': '1.25rem',
             'xl': '1.5rem',
