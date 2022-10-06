@@ -79,7 +79,7 @@ export const Product = styled('div', {
     alignItems: 'center',
     columnGap: '1.25rem',
 
-    div: {
+    a: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -170,8 +170,14 @@ export const  PurchaseFooter = styled('footer', {
         borderRadius: 8,
         transition: 'all .2s',
 
-        '&:hover': {
+        '&:not(:disabled):hover': {
+            filter: 'opacity(.7)',
             backgroundColor: '$primaryLight',    
+        },
+
+        '&:disabled':{
+            cursor: 'not-allowed',
+            backgroundColor: '$primaryLight', 
         }
     
         

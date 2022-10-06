@@ -4,23 +4,34 @@ import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import { stripe } from "../../lib/stripe";
-import { ProductContainer, ProductInformations, ProductWrapper, PurchaseButton } from "../../styles/pages/proudct";
+import { useContext } from "react";
+import { ProductsForPurchaseContext } from "../../contexts/productsForPurchaseContext";
+import { ProductContainer,ProductInformations,ProductWrapper,PurchaseButton } from "../../styles/pages/prouduct";
 
 interface ProductProps {
     id: string,
+    priceId: string,
     name: string,
     description: string,
     imageUrl: string,
-    price: string,
+    price: number,
+    priceFormated: string,
 }
 
 interface ProductPageProps {
     product: ProductProps
 }
 
+
 export default function Product({product} : ProductPageProps) {
     const {isFallback} = useRouter()
+    const {addNewProduct} = useContext(ProductsForPurchaseContext)
 
+    function handleAddNewProduct(){
+        addNewProduct(product)
+    }
+
+    
     return(
         <>
             {
@@ -38,11 +49,13 @@ export default function Product({product} : ProductPageProps) {
 
                             <ProductInformations>
                                 <h1>{product.name}</h1>
-                                <strong>{product.price}</strong>
+                                <strong>{product.priceFormated}</strong>
 
                                 <p>{product.description}</p>
 
-                                <PurchaseButton>Colocar na sacola</PurchaseButton>
+                                <PurchaseButton
+                                    onClick={handleAddNewProduct}
+                                >Colocar na sacola</PurchaseButton>
                             </ProductInformations>
                         </ProductWrapper>
                     </ProductContainer>
@@ -78,10 +91,12 @@ export const getStaticProps : GetStaticProps<any,{id: string}> = async({params})
 
     const product = {
         id: response.id,
+        priceId: price.id,
         name:  response.name,
         description: response.description,
         imageUrl: response.images[0],
-        price: FormatPrice.format(price.unit_amount! / 100)
+        price: price.unit_amount,
+        priceFormated: FormatPrice.format(price.unit_amount! / 100)
     }
 
 

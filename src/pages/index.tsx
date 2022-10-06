@@ -1,21 +1,25 @@
 import Stripe from 'stripe'
 import Link from 'next/link'
+import Head from 'next/head'
 import Image from 'next/image'
+import { useContext } from 'react'
 import { GetStaticProps} from 'next'
 import { Handbag } from 'phosphor-react'
 import { useKeenSlider } from 'keen-slider/react'
 
-import { stripe } from '../lib/stripe'
-import { HomeContainer, Product, ProductInfo, PurchaseButton } from '../styles/pages/home'
-
 import 'keen-slider/keen-slider.min.css'
-import Head from 'next/head'
+
+import { stripe } from '../lib/stripe'
+import { ProductsForPurchaseContext } from '../contexts/productsForPurchaseContext'
+import { HomeContainer, Product, ProductInfo, PurchaseButton } from '../styles/pages/home'
 
 interface Product {
   id: string,
+  priceId: string,
   name: string,
   imageUrl: string,
-  price: string,
+  price: number,
+  priceFormated: string
 }
 
 interface HomeProps {
@@ -29,6 +33,13 @@ export default function Home({products}: HomeProps){
       spacing: 48,
     }
   })
+
+  const {addNewProduct} = useContext(ProductsForPurchaseContext)
+
+    function handleAddNewProduct(product: Product){
+        addNewProduct(product)
+  }
+
 
   return (
     <>
@@ -47,14 +58,16 @@ export default function Home({products}: HomeProps){
                     <Image src={product.imageUrl} alt='' width={520} height={420}/>
                     <ProductInfo>
                         <h2>{product.name}</h2>
-                        <strong>{product.price}</strong>
+                        <strong>{product.priceFormated}</strong>
                     </ProductInfo>
 
                   </div>
 
                 </a>
               </Link>
-            <PurchaseButton>
+            <PurchaseButton
+              onClick={() => handleAddNewProduct(product)}
+            >
               <Handbag weight='bold'/>
             </PurchaseButton>
           </Product>
@@ -72,6 +85,7 @@ export const getStaticProps : GetStaticProps = async () => {
     expand: ['data.default_price']
   })
 
+
   const PriceFormater = new Intl.NumberFormat('pt-br',{
     style: 'currency',
     currency: 'BRL'
@@ -82,9 +96,11 @@ export const getStaticProps : GetStaticProps = async () => {
 
     return {
       id: product.id,
+      priceId: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: PriceFormater.format(price.unit_amount! / 100)
+      price: price.unit_amount,
+      priceFormated: PriceFormater.format(price.unit_amount! / 100)
     }
   })
 

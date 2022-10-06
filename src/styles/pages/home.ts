@@ -103,6 +103,7 @@ export const PurchaseButton = styled('button', {
     
     backgroundColor: '$primary',
     borderRadius: 6,
+    cursor: 'pointer',
     
     svg:{
         fontSize: 32

@@ -6,8 +6,12 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { SideBar } from "../SideBar";
 import LogoImage from '../../assets/igniteLogo.svg'
 import {  HeaderContainer,PurchaseCounter, PurchasesButton } from "./styles";
+import { useContext } from "react";
+import { ProductsForPurchaseContext } from "../../contexts/productsForPurchaseContext";
 
 export function Header(){
+    const {products} = useContext(ProductsForPurchaseContext)
+    const productsAmount = products.length
     return(
         <HeaderContainer>
             <Link href={'/'}>
@@ -21,11 +25,15 @@ export function Header(){
 
                 <Dialog.Trigger asChild>
                     <PurchasesButton>
-                        <PurchaseCounter>
-                            <div>
-                                <span>0</span>
-                            </div>
-                        </PurchaseCounter>
+                        {
+                            productsAmount > 0 &&(
+                            <PurchaseCounter>
+                                <div>
+                                    <span>{productsAmount}</span>
+                                </div>
+                            </PurchaseCounter>
+                            )
+                        }
                         <Handbag weight="bold"/>
                     </PurchasesButton>
                 </Dialog.Trigger>

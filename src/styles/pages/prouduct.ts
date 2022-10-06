@@ -79,6 +79,7 @@ export const PurchaseButton = styled('button', {
 
     fontSize: '$regular',
     fontWeight: 'bold',
+    color: '$title',
 
    
     backgroundColor: '$primary',
