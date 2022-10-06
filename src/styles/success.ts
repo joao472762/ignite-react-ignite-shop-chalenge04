@@ -44,7 +44,7 @@ export const ImageContainer = styled('div', {
     width: '8.75rem',
     height: '8.75rem',
 
-    transform: 'translatex(-35%)',
+    marginLeft: -30,
     boxShadow: `0px 0px 0px .3px #0004`,
 
 

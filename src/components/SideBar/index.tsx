@@ -10,14 +10,24 @@ import { ProductsAmount } from '../../hooks/productsAmount';
 
 export function SideBar(){
     const {products,removeOneProduct} = useContext(ProductsForPurchaseContext)
-    const [isDisable, setIsDisable] = useState(false)
+    const [isRedirected, setIsRedirected] = useState(false)
     const {productsAmountFormated} = ProductsAmount()
+
     
     async function handleCheckoutProducts(){
-        setIsDisable(true)
+        if(products.length  < 1){
+            return
+        }
+        setIsRedirected(true)
         try {
+            const productsForCheckout = products.map(product => {
+                return {
+                    price: product.priceId,
+                    quantity: 1,
+                }
+            })
             const url = '/api/checkout'
-            const response = await axios.post(url,{priceId:'price_1LkcdPFot85qYi7ecfmsqQcM'})
+            const response = await axios.post(url,{productsForCheckout})
             const checkoutUrl = response.data.checkoutUrl
             location.href = checkoutUrl
             
@@ -32,6 +42,7 @@ export function SideBar(){
     }
     
     const productsLength = products.length
+    const isDisabled = isRedirected || products.length < 1 ? true : false
 
     return(
         <Overlay>
@@ -81,7 +92,7 @@ export function SideBar(){
 
                     <button 
                         type='button' 
-                        disabled={isDisable}
+                        disabled={isDisabled}
                         onClick={handleCheckoutProducts}
                     >
                         Finalizar compra
