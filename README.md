@@ -1,34 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ignite shop
 
-## Getting Started
+![igshopImage04](https://user-images.githubusercontent.com/84108989/194453406-7c628227-fae5-405a-8898-98cf94ddc11a.png)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Esse foi o quarto desafio da trilha de reactJs do Ignite da Rocketseat
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+a proposta foi criar um Ecomerce utilizando nestJs e consumir uma API de pagamnetos, que foi a api do stripe
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+este projeto foi focado em ssg (Static-site generators) que otimiza o seu projeto na parte de SEO , mostrando o conteúdo apenas quando toda página é carregada e não, á página não fica mais lenta, e sim mais rápida graças a parte "back-end" no próprio front-end
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+uma das partes mais legáis do projeto foi a integração o o stirpe que permitiu cadastras e solidar os pordutos
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![igshopImage09](https://user-images.githubusercontent.com/84108989/194456630-cd1f3948-d986-49a5-b89b-bf2e384353a2.png)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+tecnologias utilizadas:
+</hr>
+next js
+react Js
+axios
+keen-slider
+stitches
+uuid
+stripe
+phosphor-react
+</hr>
+mais algumas fotos do projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![igshopImage08](https://user-images.githubusercontent.com/84108989/194457061-2e5601c9-5db4-43a4-a39d-784ac07a764b.png)
+![igshopImage11](https://user-images.githubusercontent.com/84108989/194457075-58710c20-85ca-4dd4-98d3-eff7aaf74070.png)
